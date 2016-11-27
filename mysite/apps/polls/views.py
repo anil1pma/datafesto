@@ -4,11 +4,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from rest_framework.views import APIView
-import json
-from polls.models import SendMessage
-import time
-import calendar
-from django.utils.dateparse import parse_date
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template import loader, Context
+from rest_framework.response import Response
+from django.shortcuts import redirect
 
 class SaveData(APIView):
     def get(self, request):
@@ -16,11 +16,28 @@ class SaveData(APIView):
         return render_to_response("sendmessage.html", var)
 
     def post(self, request):
-        info = json.loads(request.body)
-        mob_no = info['mobnumber']
-        msg = info['message']
-        mail_id = info['emailaddress']
-        msg_through = info['message_through']
-        msg_time = info['message_time']
-        SendMessage.objects.create(user_mob_no=mob_no, user_message=msg, user_mail_id=mail_id, user_message_through= msg_through, user_msg_date_time=msg_time)
-        return HttpResponse("success")
+        name = "Gaurav"
+        mail_id = "grv.deserves09@gmail.com"
+        customer_name = request.DATA.get('customer_name')
+        customer_mail_id = request.DATA.get('customer_mail_id')
+        customer_message = request.DATA.get('customer_message')
+        customer_phone = request.DATA.get('customer_phone')
+        try:
+            subject = 'Customer Query'
+            to_user_list = [mail_id, "anil.bhu2009@gmail.com", "grv.deserves09@gmail.com",  "dataf3sto@gmail.com"]
+            mail_html = loader.get_template('user_message.html')
+            data = Context({"name": name, "customer_name": customer_name, "customer_mail_id": customer_mail_id, "customer_phone": customer_phone, "customer_message": customer_message})
+            content = mail_html.render(data)
+            msg = EmailMessage(subject, content, settings.EMAIL_HOST_USER, to_user_list)
+            msg.content_subtype = "html"
+            msg.send()
+        except:
+            pass
+        context = {"message": "SUCCESS", "error": "error"}
+        return Response(context)
+
+class HomePage(APIView):
+    def get(self, request):
+        var = None
+        return redirect('/')
+

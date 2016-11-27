@@ -1,11 +1,4 @@
-Python==2.7.6
 Django==1.8
-MySQL-python==1.2.5
 djangorestframework==2.3.14
 djutil==0.2
 requests
-celery
-librabbitmq
-rabbitmq-server
-python-librabbitmq
-python-celery

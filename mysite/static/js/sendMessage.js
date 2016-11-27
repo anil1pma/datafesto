@@ -1,40 +1,50 @@
-var app = angular.module('sendMessage', ["angularjs-datetime-picker"]);
-app.controller('sendMessageController', function($scope, $http, $window, $timeout) {
-    $scope.names = ["Email","SMS"];
-    $scope.minDate = new Date()
-    $scope.sendMessage = function() {
-         var current_time = new Date().getTime();
-         var user_time = new Date($scope.message_time).getTime();
-         if($scope.emailaddress === undefined || $scope.mobnumber === undefined){
-              alert("Please select mobile number or eimal or both");
-             }
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 
-          else if(($scope.emailaddress && $scope.mobnumber) && !($scope.checkboxModel.value1 || $scope.checkboxModel.value2)){
-              alert("Please select sms or email");
-             }
+function sendmessage() {
+      var customer_name = $('#customerName').val();
+      var customer_mail_id = $('#customerEmail').val();
+      var customer_phone = $('#customerPhone').val();
+      var customer_message = $('#customerMessage').val();
+      data = JSON.stringify({
+        'customer_name': customer_name,
+        'customer_mail_id': customer_mail_id,
+        'customer_phone': customer_phone,
+        'customer_message': customer_message,
+    });
+      $.ajax({
+        type: 'POST',
+        url: "/polls/savedata/",
+        data: data,
+        beforeSend: function(request) {
+            request.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+        },
+        success: function(response) {
+            if (response['message'] == 'SUCCESS') {
+                 wait(response);
+                 window.location = "/"
+            }
+        },
+        dataType: 'json',
+        contentType: 'application/json',
+    });
+    function wait(response){
+    setTimeout(function(){
+        if( response['message'] == 'SUCCESS'){alert('Your query has been send successfully');}
+    }, 5000);
 
-          else if(!($scope.emailaddress && $scope.mobnumber) && !(($scope.emailaddress && $scope.checkboxModel.value1) || ($scope.mobnumber && $scope.checkboxModel.value2))){
-                alert("Please select email");
-                }
-          else if( user_time < current_time){
-            alert("Please select correct time");
-             }
-        else {
-        var message_through;
-        if( $scope.checkboxModel.value1 && $scope.checkboxModel.value12 )
-            message_through = "Email" + "|" + "SMS";
-        else if($scope.checkboxModel.value1)
-            message_through = "Email"
-        else
-            message_through = "SMS"
-
-        $http({
-            url: "/polls/savedata",
-            method: "POST",
-            data: {"mobnumber": $scope.mobnumber, "emailaddress": $scope.emailaddress,"message": $scope.message,"message_time":$scope.message_time, "message_through":message_through}
-        }).success ( function () {
-            $window.location.href = '/';
-        });
-       }
-      }
-});
+    }
+}

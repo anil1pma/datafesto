@@ -38,17 +38,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
-# PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-# # Other settings...
-# TEMPLATE_DIRS = (
-#     os.path.join(PROJECT_ROOT, "templates"),
-# )
-
-
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )

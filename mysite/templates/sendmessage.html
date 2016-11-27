@@ -1,37 +1,2080 @@
 <!DOCTYPE html>
-<html ng-app="sendMessage">
+<html>
 <head>
-    {% include 'common.html' %}
+    <meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/sendMessage.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="MobileOptimized" content="480" />
+<link
+	href="https://viamagus.net/static/sitebuilder/css/viamagus-publish-sites.css"
+	rel="stylesheet" />
+<link
+	href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet" />
+<style>
+#playarea #target, .viamagus-container {
+
+}
+
+.container-fluid {
+	padding: 0px;
+}
+
+.viamagus-heading1 {
+	color: #fff;
+	line-height: 1.2;
+}
+
+.viamagus-heading3 {
+	color: #fff;
+	line-height: 1.25;
+}
+
+.viamagus-section-heading {
+	color: #696969;
+	line-height: 1.25;
+	letter-spacing: 1px;
+}
+
+.viamagus-heading2 {
+	color: #696969;
+	line-height: 1.25;
+	letter-spacing: 1px;
+}
+
+.viamagus-paragraph {
+	color: #696969;
+	line-height: 1.5;
+	word-break: break-word;
+}
+
+.viamagus-heading2.featurette-heading {
+	margin-top: 0px
+}
+
+.viamagus-component-content {
+	padding: 20px 100px;
+	max-width: 1366px;
+	margin: auto;
+}
+
+.well .viamagus-component-content, .viamagus_txt-slide .viamagus-component-content
+	{
+	padding: 0px;
+	max-width: 100%;
+	margin: auto;
+}
+
+.viamagus-spacer .viamagus-component-content {
+	padding: 0px 100px;
+}
+
+.viamagus-component-content-inner {
+	padding: 0px 100px;
+	max-width: 1366px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.viamagus_landimg .viamagus-component-content {
+	margin: auto !important;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.viamagus_footer .viamagus-component-content {
+	padding: 35px 100px 0 100px;
+}
+
+.vm-social-wall .viamagus-component-content {
+	padding: 0px;
+}
+
+.viamagus-background .backstretch:before {
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.1)
+}
+
+.viamagus-button-default {
+	background: #30AEC2;
+	border: 0px solid;
+	font-size: 14px;
+	color: #fff;
+	margin: auto;
+	border-radius: 6px;
+	text-shadow: 0 0 0;
+	padding: 12px 25px;
+	margin-top: 20px;
+}
+
+.viamagus-button-default:hover {
+	background: #008fa5;
+	color: #fff;
+}
+
+.viamagus-button-flat {
+	background: #e50746;
+	padding: 20px 45px;
+	text-shadow: 0 0 0;
+	color: #fff;
+	font-size: 17px;
+	text-decoration: none;
+	border: none;
+	vertical-align: middle;
+	border-radius: 0;
+	margin-top: 20px;
+}
+
+.viamagus-button-flat:hover {
+	background: #d60742;
+	color: #fff;
+}
+
+.viamagus-button-transparent {
+	background: rgba(0, 0, 0, 0);
+	border: 2px solid;
+	color: #fff;
+	margin: auto;
+	border-radius: 10px;
+	text-shadow: 0 0 0;
+	padding: 10px 30px;
+	margin-top: 20px;
+}
+
+.viamagus-button-transparent:hover {
+	background: rgba(0, 0, 0, 0.2);
+	color: #fff;
+}
+
+.mfp-figure:after {
+	box-shadow: none;
+	background: none;
+}
+
+.viamagus_header {
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
+.viamagus_header .viamagus-component-bg-colour {
+	background-color: #fff;
+}
+
+.viamagus_header .navbar {
+	margin-bottom: 0px !important;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+.viamagus_header .navbar-inner {
+	background: none;
+	padding: 0px;
+	border-radius: 0px;
+	border: 0px;
+	box-shadow: 0 0 0;
+}
+
+.viamagus_header .nav {
+	list-style: none;
+	position: relative;
+	float: right;
+	margin: 0;
+}
+
+.viamagus_header .brand {
+	color: #34B4C1;
+	margin-left: 0px;
+	padding-left: 0px;
+	text-shadow: none;
+}
+
+.viamagus_header .brand:hover {
+	color: #34B4C1;
+}
+
+.viamagus_header .brandcenter {
+	width: 100%;
+	margin-left: -20px;
+}
+
+.viamagus_header .navbar-inverse .nav-collapse .nav>li.active>a {
+	background: none;
+	color: #333;
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125);
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.125);
+	outline: none;
+}
+
+.viamagus_header .navbar-inverse .nav>li>a {
+	text-shadow: 0 0 0;
+	padding: 10px 20px 10px 20px;
+}
+
+.viamagus_header .navbar-inverse .nav>li:last-child a {
+	padding: 10px 0px 10px 20px;
+}
+
+.viamagus_header .nav li a {
+	display: block;
+	color: #696969;
+	font-size: 14px;
+	font-weight: 100;
+	letter-spacing: 1px;
+}
+
+.viamagus_header .nav li a:hover {
+	text-decoration: none;
+	color: #2e3133;
+}
+
+.viamagus_header .navbar .btn-navbar {
+	margin-top: 15px;
+}
+
+.viamagus_header .navbar-inverse .nav-collapse .nav>li>a {
+	background: none;
+	text-align: right;
+}
+
+.viamagus_header .navbar-inverse .nav-collapse .nav>li>a:hover {
+	background: none;
+	color: #34B4C1;
+}
+
+.viamagus_header .menu-center {
+	display: table;
+	text-align: center;
+	width: 100% !important;
+}
+
+.viamagus_header .logomenu-center {
+	display: table;
+	text-align: center;
+	width: auto !important;
+}
+
+.viamagus_header .collapse-center {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.viamagus_header .collapse-centerbrand {
+	display: table;
+	margin: auto;
+}
+
+.viamagus-sticky-header {
+	position: fixed !important;
+	top: 0;
+	width: 100%;
+	z-index: 1010;
+}
+
+.viamagus_header .dropdown-menu {
+	border: 0;
+	border-top: 2px solid #F1720C;
+	border-radius: 0px;
+	background: #fff;
+	margin-top: 10px;
+	position: absolute;
+	top: 100%;
+	right: 0px !important;
+	margin-top: 10px;
+	left: auto;
+	padding: 0;
+}
+
+.viamagus_header .navbar .nav>li>.dropdown-menu:after {
+	left: auto !important;
+	right: 17px !important;
+}
+
+.viamagus_header .navbar .nav>li>.dropdown-menu:before {
+	left: auto !important;
+	right: 17px !important;
+}
+
+.viamagus_header .navbar .nav>li>.dropdown-menu:before {
+	position: absolute;
+	top: -8px;
+	display: inline-block;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 7px solid transparent;
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	content: '';
+}
+
+.viamagus_header .navbar .nav>li>.dropdown-menu:after {
+	position: absolute;
+	top: -8px;
+	display: inline-block;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid #F1720C;
+	border-left: 6px solid transparent;
+	content: '';
+}
+
+.viamagus_header .dropdown-menu li a {
+	background: none;
+	border-bottom: 1px solid #e7e7e7;
+	color: #444 !important;
+	border-bottom: 1px solid #e7e7e7;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 35px;
+	text-align: right;
+	padding: 3px 15px;
+	-webkit-transition: all 200ms ease-in;
+	-o-transition: all 200ms ease-in;
+	-moz-transition: all 200ms ease-in;
+	transition: all 200ms ease-in;
+}
+
+.viamagus_header .navbar-inverse .nav li.dropdown.open>.dropdown-toggle
+	{
+	background: none;
+}
+
+.viamagus_header .navbar-inverse .nav li.dropdown>.dropdown-toggle .caret
+	{
+	border-top-color: #999;
+	border-bottom-color: #999;
+}
+
+.viamagus_header .navbar-inverse .nav li.dropdown>.dropdown-toggle .caret:hover
+	{
+	border-top-color: #e33b00;
+	border-bottom-color: #e33b00;
+}
+
+.viamagus_header .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus,
+	.dropdown-submenu:hover>a, .dropdown-submenu:focus>a {
+	background: #000;
+	color: #777;
+}
+
+.viamagus_header .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover,
+	.dropdown-menu>.active>a:focus {
+	background: none;
+	text-align: right;
+}
+
+.viamagus_header .navbar-inverse .nav li.dropdown.open>.dropdown-toggle,
+	.navbar-inverse .nav li.dropdown.active>.dropdown-toggle,
+	.navbar-inverse .nav li.dropdown.open.active>.dropdown-toggle {
+	color: #999;
+	background-color: none;
+}
+
+.viamagus_header .navbar-inverse .nav-collapse .dropdown-menu a:hover {
+	background: none;
+}
+
+.viamagus_landimg {
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+	display: block;
+	background-color: rgba(0, 0, 0, 0);
+	width: 100%;
+}
+
+.viamagus_landimg .viamagus-component-bg-colour {
+	width: 100%;
+}
+
+.displayTable {
+	display: table;
+	width: 100%;
+}
+
+.displayTableCell {
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;
+	height: 500px;
+}
+
+.viamagus_landimg .box-video {
+	overflow: hidden;
+}
+
+.viamagus_landimg #video-area, .viamagus_landimg #box-left {
+	display: table;
+	min-height: 350px;
+}
+
+.viamagus_landimg #video-area .hero {
+	text-align: center;
+}
+
+.viamagus_landimg #video-area .hero img {
+	max-height: 350px;
+	float: none;
+}
+
+.viamagus_landimg .hero {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.viamagus_landimg .hero-img-center img {
+	max-height: 150px;
+}
+
+.viamagus_landimg #box-center {
+	max-height: 350px;
+}
+
+.viamagus_landimg .text-center .viamagus-cart-button {
+	text-align: center !important;
+}
+
+.viamagus_image {
+	margin: 0px;
+	display: table;
+	width: 100%;
+}
+
+.viamagus_image img {
+	margin: auto;
+	vertical-align: middle;
+	display: block;
+	text-align: center;
+}
+
+.viamagus-image-text .featurette {
+	overflow: hidden;
+	background:;
+}
+
+.viamagus-image-text .featurette .span6 {
+	margin: 0px;
+}
+
+.viamagus-image-text .featurette-image {
+	position: relative;
+	z-index: 10;
+}
+
+.featurette-image.pull-right, .pull-right img.featurette-image {
+	margin-left: 30px;
+}
+
+.featurette-image.pull-left, .pull-left img.featurette-image {
+	margin-right: 30px;
+}
+
+.featurette .lead {
+	margin: 0px;
+}
+
+.viamagus-image-text ol, .viamagus-image-text ul {
+	list-style-position: inside;
+	margin: 0;
+}
+
+.columngrid-wrap img.why-section {
+	float: left;
+	margin-right: 10px;
+}
+
+.viamagus_circlimg img.why-section {
+	border-radius: 0px;
+}
+
+.viamagus_circlimg img:hover {
+	opacity: 0.9;
+	filter: alpha(opacity = 90);
+}
+
+.viamagus_circlimg ul, .viamagus_circlimg ol {
+	list-style-position: inside;
+	margin: 0;
+}
+
+.viamagus_txt-slide .block {
+	display: table;
+	border: 0px !important;
+	background: none !important;
+	margin: 0em;
+	border-top: none;
+}
+
+.viamagus_txt-slide .center {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.viamagus_txt-slide .carousel-control.left {
+	left: 0px;
+}
+
+.viamagus_txt-slide .carousel-control.right {
+	right: 0px;
+}
+
+.viamagus_txt-slide .carousel-control.right, .viamagus_txt-slide .carousel-control.left
+	{
+	-moz-outline-style: none;
+	outline: none;
+	border-radius: 0;
+	border: 0 none;
+	width: 10px;
+	background-color: transparent;
+	opacity: 0.9;
+	margin-top: 0px;
+	color: #fff;
+	font-size: 30px;
+	display: block;
+	padding: 0 25px;
+	height: 100%;
+	top: 0;
+}
+
+.viamagus_txt-slide .carousel-control .arrow {
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-top: -16px;
+}
+
+.viamagus_txt-slide .carousel-control.right .arrow {
+	left: 35px;
+	color: #fff;
+}
+
+.viamagus_txt-slide .carousel-control.left .arrow {
+	right: 35px;
+	color: #fff;
+}
+
+.viamagus_txt-slide .carousel-control.hide {
+	display: none !important;
+}
+
+.viamagus_txt-slide .hidden-phone {
+	display: block !important;
+}
+
+.viamagus_txt-slide .fa-2x {
+	font-size: 35px;
+}
+
+.well {
+	background-color: transparent;
+	border-radius: 0px;
+	border: 0px;
+	margin-bottom: 0px;
+}
+
+.carousel {
+	margin-bottom: 0px;
+}
+
+.carousel-control {
+	background: transparent;
+	border: none;
+	opacity: .7;
+	width: 22px;
+}
+
+.well .carousel-indicators {
+	right: 100px !important;
+}
+
+.well .carousel-control {
+	position: absolute;
+	top: 51% !important;
+}
+
+.carousel-inner>.item>img {
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+}
+
+.viamagus-carousel-slider-info {
+	background: rgba(1, 1, 1, 0.6);
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding-bottom: 5px;
+}
+
+.viamagus-carousel-slider-text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: block;
+}
+
+.slider-text-center {
+	display: table;
+	width: 100%;
+}
+
+.slider-text-center-text {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.viamagus-clients-list .elastislide-list li {
+	width: auto !important;
+	max-width: none !important;
+	max-height: none !important;
+}
+
+.galleria {
+	background: transparent;
+}
+
+.galleria .notouch {
+	background: transparent;
+}
+
+.viamagus-grid-item.viamagus-grid {
+	position: absolute;
+	width: 200px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.viamagus-grid img {
+	max-width: 100%;
+	width: 100%;
+	display: block;
+	-webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	-moz-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	-o-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	-webkit-transform-origin: 50% 0%;
+	-moz-transform-origin: 50% 0%;
+	-o-transform-origin: 50% 0%;
+	-ms-transform-origin: 50% 0%;
+	transform-origin: 50% 0%;
+}
+
+.viamagus-grid .viamagus-grid-item-info {
+	bottom: 0;
+	text-overflow: ellipsis;
+	background: #F7F5F2;
+	padding: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #45494d;
+	-moz-opacity: 0;
+	opacity: 0;
+	-webkit-transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	-moz-transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	-o-transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.viamagus-grid .viamagus-grid-item-info:hover {
+	opacity: 0.9;
+}
+
+.viamagus-grid h4 {
+	padding: 0px 5px;
+}
+
+.viamagus-masonry .viamagus-grid-item-info {
+	color: #333;
+	background: #fff;
+	padding: 1px;
+}
+
+.viamagus-masonry .viamagus-grid-item-info h4 {
+	margin: 5px 0;
+	padding: 0 10px 5px;
+}
+
+.viamagus-masonry .viamagus-grid-item-info div {
+	padding: 0px 10px 5px;
+}
+
+.viamagus-masonry img {
+	width: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px;
+	display: block;
+}
+
+.viamagus-grid-gallery .image-bottom {
+	color: #333;
+	background: #fff;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.viamagus-grid-gallery .image-top {
+	color: #333;
+	background: #fff;
+	top: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.viamagus-grid-gallery .image-hover {
+	bottom: 0;
+	background: #F7F5F2;
+	padding: 30px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: #45494d;
+	-moz-opacity: 0;
+	opacity: 0;
+	-webkit-transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	-moz-transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	-o-transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.viamagus-grid-gallery .image-hover {
+	word-wrap: break-word;
+}
+
+.viamagus-grid-gallery .viamagus-grid .image-hover:hover {
+	opacity: 0.9;
+}
+
+.viamagus-cart-container {
+	border: 1px solid #DEDEDE !important;
+}
+
+.viamagus-cart-container h3.viamagus-product-name {
+	font-size: 18px;
+}
+
+.viamagus-cart-container h4.viamagus-product-price {
+	font-size: 14px;
+}
+
+.viamagus-cart .viamagus-grid-item-info {
+	color: #333;
+	background: #fff;
+	padding: 0 5px !important;
+}
+
+.viamagus-cart {
+	border: 0 !important;
+}
+
+.viamagus-cart-img {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.viamagus_contact .form-horizontal {
+	margin: 0;
+}
+
+.viamagus_contact ul {
+	padding: 0;
+	margin: 0px;
+}
+
+.viamagus-contact-form-layout-2 .span4 {
+	padding: 20px 0px;
+}
+
+.viamagus_contact p {
+	color: inherit;
+}
+
+.viamagus_contact input.submit {
+	margin-top: 20px;
+}
+
+.viamagus_contact p.contact-message {
+	margin: 0px;
+}
+
+.viamagus_contact .map {
+	position: relative !important;
+	color: #000;
+}
+
+.viamagus_contact input[type=text], .viamagus_contact input[type=email]
+	{
+	height: 2.90em;
+	color: white;
+}
+
+.viamagus_contact textarea {
+	color: white;
+	height: auto;
+}
+
+.viamagus_contact input[type=text], .viamagus_contact input[type=email],
+	.viamagus_contact textarea {
+	text-align: left;
+	vertical-align: middle;
+	width: 97%;
+	background: transparent;
+	color: #000;
+	border-radius: 6px;
+	padding: 4px;
+}
+
+.viamagus_contact .span6 input[type=text], .viamagus_contact .span6 input[type=email],
+	.viamagus_contact .span6 textarea {
+	width: 98%;
+}
+
+.viamagus_contact input, button, select, textarea {
+	font-family: inherit;
+}
+
+.viamagus_contact li {
+	list-style: none;
+}
+
+.viamagus_contact label {
+	color: #626263;
+}
+
+.viamagus_contact .viamagus-contact-form-address {
+	display: table;
+	min-height: 180px;
+}
+
+.viamagus_contact .viamagus-form-alignment, .viamagus-google-map .via-align
+	{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.viamagus-google-map .span4 {
+	display: table;
+	min-height: 300px;
+}
+
+.viamagus_contact img {
+	max-width: none;
+}
+
+.viamagus_contact .viamagus-customer-email a {
+	word-break: break-word;
+	color: inherit;
+}
+
+.viamagus_footer .copyright-center {
+	text-align: center;
+}
+
+.viamagus_footer .socials-left {
+	font-size: 20px;
+	text-align: left;
+}
+
+.viamagus_footer .socials-right {
+	font-size: 20px;
+	text-align: right;
+}
+
+.viamagus_footer .viamagus-paragraph a {
+	color: inherit;
+}
+
+.viamagus_footer .viamagus-paragraph .span3 a {
+	padding: 0px 10px;
+	color: inherit;
+}
+
+.viamagus_footer a:hover {
+	opacity: 0.5;
+	text-decoration: none !important;
+}
+
+#logo a:hover {
+	text-decoration: none;
+}
+
+.vm-text-update {
+	list-style: none;
+	margin: 20px 0px;
+}
+
+.vm-text-update>li>.vm-text-update-panel {
+	background: rgba(255, 255, 255, 0);
+	width: calc(100% - 135px);
+	float: left;
+	border: 1px solid #d4d4d4;
+	border-radius: 2px;
+	padding: 30px;
+	color: #626263;
+}
+
+.vm-text-update>li {
+	margin-bottom: 0px;
+}
+
+.vm-product-group {
+	padding: 0px;
+}
+
+.vm-product-group .vm-product {
+	padding: 0 100px;
+}
+
+.vm-social-wall .viamagus-heading1 {
+	text-align: center;
+	line-height: 1.2;
+	margin-top: 0;
+	padding-top: 5px;
+}
+
+.vm-social-wall .viamagus-heading3 {
+	text-align: center;
+}
+
+@media ( min-width :650px) {
+	.viamagus_landimg {
+		background-attachment: fixed;
+	}
+}
+
+@media ( max-width :979px) {
+	.well .viamagus-component-content, .viamagus_txt-slide .viamagus-component-content
+		{
+		padding: 0px !important;
+	}
+	.viamagus-component-content, .vm-product-group .vm-product {
+		padding: 20px !important;
+	}
+	.viamagus_landimg .viamagus-component-content {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+	.viamagus-component-content-inner {
+		padding: 0 35px;
+	}
+	.viamagus_header .navbar .brand {
+		padding: 10px 20px 10px;
+		padding-left: 0px;
+	}
+	.viamagus_header .viamagus-component-content {
+		padding: 0px 20px !important;
+	}
+	.viamagus_header .brand img {
+		max-width: 100px;
+	}
+	.viamagus_header .collapse-center {
+		display: table-cell;
+		vertical-align: middle;
+		padding-top: 40px;
+	}
+	.viamagus_header .navbar .btn-navbar {
+		margin-top: 5px;
+		position: absolute;
+		right: 18px;
+	}
+	.viamagus_header .nav-collapse .dropdown-menu li li a {
+		margin-bottom: 0px !important;
+	}
+	.viamagus_header .navbar-inverse .nav>li a {
+		padding: 10px 0px 10px 20px !important;
+	}
+	.viamagus_header .dropdown-menu {
+		position: relative;
+		min-width: 120px;
+	}
+	.viamagus_header .dropdown-menu li a {
+		white-space: normal;
+		word-break: break-word;
+	}
+	.viamagus_header .navbar-inverse .dropdown-menu li a {
+		padding: 10px 20px !important;
+	}
+}
+
+@media ( max-width :768px) {
+	.viamagus-heading1, .viamagus-heading1 span {
+		font-size: 36px !important;
+	}
+	body {
+		padding: 0px;
+	}
+	.viamagus_footer {
+		margin: 0px;
+	}
+	.viamagus_footer .socials-left, .viamagus_footer .socials-left {
+		text-align: center;
+	}
+	.viamagus_landimg #box-left, .viamagus_landimg #video-area {
+		min-height: 100px;
+	}
+	.viamagus_landimg #video-area .hero img {
+		margin: 10px 0;
+	}
+	.columngridone, .columngridtwo, .columngridthree {
+		margin: 10px 0px 30px;
+	}
+}
+
+@media ( max-width :500px) {
+	.viamagus-heading1, .viamagus-heading1 span {
+		font-size: 32px !important;
+	}
+	.featurette-image.pull-left, .pull-left img.featurette-image {
+		margin-right: 0px;
+	}
+	.featurette-image {
+		margin: 10px 0px;
+		width: 100% !important;
+	}
+	.featurette-image.pull-right, .pull-right img.featurette-image {
+		margin-left: 0px;
+	}
+	.viamagus_circlimg .img-responsive {
+		display: block;
+		height: auto !important;
+		max-width: 100%;
+	}
+	.carousel-control {
+		width: 12px;
+	}
+	.viamagus_header .menu-center {
+		display: block;
+	}
+	.viamagus_header .collapse-center {
+		display: block;
+	}
+}
+
+.hero-content strong {
+	font-size: 47px !important;
+	letter-spacing: 12px;
+}
+</style>
+<link href="http://viamagus.net/static/viamagus/css/viamagus.css"
+	rel="stylesheet" />
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<script type="text/javascript"
+	src="http://viamagus.net/static/viamagus/js/modernizr.custom.79639.js"></script>
+<style>
+.viamagus_header {
+	display: none !important;
+}
+
+body, h2, h4 {
+	line-height: 1.42857143;
+}
+
+#viamagus_columngrid_3976 li {
+	line-height: normal;
+}
+
+.viamagus_footer .viamagus-paragraph .span3 a {
+	color: #7B7B7B;
+}
+
+a.btn.viamagus-btn {
+	text-shadow: 0 0 0;
+	background-image: none;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+	position: fixed !important;
+}
+
+.hosted-padding, .customer-padding {
+	padding-bottom: 50px;
+}
+
+.navbar-header {
+	float: left;
+}
+
+.title-big-blue {
+	display: block;
+}
+
+.viamagus-section-header .viamagus-section-heading, .viamagus-heading1 {
+	font-weight: 300 !important;
+}
+
+.hero-content h1 {
+	margin: 0;
+	line-height: 1.1;
+}
+
+.row-fluid .slide-1-container .span6 {
+	display: table;
+}
+
+.viamagus_txt-slide .viamagus-heading3 {
+	font-weight: 300 !important;
+}
+
+@media ( min-width : 769px) {
+	.row-fluid .slide-1-container .span6 {
+		width: 50%;
+		margin-left: 0;
+	}
+}
+
+@media ( max-width : 768px) {
+	.viamagus_txt-slide .viamagus-heading3 {
+		font-size: 20px !important;
+	}
+	#viamagus_columngrid_3976 .viamagus-paragraph {
+		font-weight: normal;
+		width: 200px;
+		margin: auto;
+	}
+	#viamagus_columngrid_3976 ul {
+		padding: 0;
+		margin: 0;
+	}
+	#viamagus_columngrid_3976 li {
+		font-size: 19px !important;
+		line-height: normal;
+		list-style-position: inside;
+	}
+	.vm-section-1-content-2-spacing {
+		padding-top: 20px;
+	}
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.viamagus-section-heading {
+		font-size: 36px !important;
+	}
+	.viamagus_contact .span6 input[type=text], .viamagus_contact .span6 textarea
+		{
+		width: 96%;
+	}
+	.viamagus-contact-info ul {
+		margin: 0 20px;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.dressed-to-kill {
+		padding: 20px 0px;
+	}
+	.step-section-mobile {
+		display: block;
+		padding: 10px 0;
+	}
+	.hero-small-title {
+		padding: 5px 15px;
+	}
+	.viamagus_contact .viamagus-button-default {
+		margin: 20px 0;
+	}
+	.fa-3x {
+		font-size: 2em;
+	}
+	.vm-section-1-content-1-spacing {
+		padding-top: 30px;
+		padding-bottom: 0px;
+	}
+	.vm-section-1-content-2-spacing {
+		padding-bottom: 30px;
+	}
+	.viamagus-content {
+		font-size: 19px;
+		padding: 0 20px;
+	}
+	.we-build-move-in-section {
+		padding-top: 30px;
+	}
+	.we-bulild-move-in-section {
+		padding-bottom: 30px;
+	}
+	.hosted-padding, .customer-padding {
+		padding-bottom: 10px;
+	}
+	.viamagus-spacer .viamagus-component-bg-colour {
+		height: 0 !important;
+	}
+	.navbar-brand {
+		padding: 23px 10px;
+	}
+	.sign-in {
+		padding: 2px 8px;
+	}
+}
+</style>
+<script>
+	(function(i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r;
+		i[r] = i[r] || function() {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date();
+		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+		a.async = 1;
+		a.src = g;
+		m.parentNode.insertBefore(a, m)
+	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
+			'ga');
+	ga('create', 'UA-58602806-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<style>
+.viamagus-heading1 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.viamagus_landimg .viamagus-heading1 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.viamagus_txt-slide .viamagus-heading1 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.slider-text-center-text .viamagus-heading1 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.viamagus-heading3 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.viamagus_landimg .viamagus-heading3 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.viamagus_txt-slide .viamagus-heading3 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.slider-text-center-text .viamagus-heading3 {
+	color: rgba(105, 105, 105, 1);
+}
+
+.viamagus-section-heading {
+	color: rgba(16, 152, 211, 1);
+}
+
+.viamagus-section-header .viamagus-section-heading {
+	color: rgba(16, 152, 211, 1);
+}
+
+.viamagus-heading1 {
+	font-size: 64px;
+}
+
+.viamagus_landimg .viamagus-heading1 {
+	font-size: 64px;
+}
+
+.viamagus_txt-slide .viamagus-heading1 {
+	font-size: 64px;
+}
+
+.slider-text-center-text .viamagus-heading1 {
+	font-size: 64px;
+}
+
+.viamagus-heading3 {
+	font-size: 24px;
+}
+
+.viamagus_landimg .viamagus-heading3 {
+	font-size: 24px;
+}
+
+.viamagus_txt-slide .viamagus-heading3 {
+	font-size: 24px;
+}
+
+.slider-text-center-text .viamagus-heading3 {
+	font-size: 24px;
+}
+
+.viamagus-section-heading {
+	font-size: 72px;
+}
+
+.viamagus-section-header .viamagus-section-heading {
+	font-size: 72px;
+}
+
+.viamagus-heading2 {
+	font-size: 24px;
+}
+
+.viamagus_circlimg .viamagus-heading2 {
+	font-size: 24px;
+}
+
+.viamagus-paragraph {
+	font-size: 14px;
+}
+
+.featurette .viamagus-paragraph {
+	font-size: 14px;
+}
+
+.viamagus-heading1 {
+	font-weight: normal;
+}
+
+.viamagus_landimg .viamagus-heading1 {
+	font-weight: normal;
+}
+
+.viamagus_txt-slide .viamagus-heading1 {
+	font-weight: normal;
+}
+
+.slider-text-center-text .viamagus-heading1 {
+	font-weight: normal;
+}
+
+.viamagus-heading3 {
+	font-weight: normal;
+}
+
+.viamagus_landimg .viamagus-heading3 {
+	font-weight: normal;
+}
+
+.viamagus_txt-slide .viamagus-heading3 {
+	font-weight: normal;
+}
+
+.slider-text-center-text .viamagus-heading3 {
+	font-weight: normal;
+}
+
+.viamagus-section-heading {
+	font-weight: normal;
+}
+
+.viamagus-section-header .viamagus-section-heading {
+	font-weight: normal;
+}
+
+.viamagus-heading2 {
+	font-weight: normal;
+}
+
+.viamagus_circlimg .viamagus-heading2 {
+	font-weight: normal;
+}
+
+.viamagus-paragraph {
+	font-weight: normal;
+}
+
+.featurette .viamagus-paragraph {
+	font-weight: normal;
+}
+
+.viamagus-blog-post-title {
+	font-size: 36px;
+}
+
+.vm-blog .vm-blog-post .post-content h1 {
+	font-size: 36px;
+}
+
+.viamagus-blog-post-desc {
+	font-size: 14px;
+}
+
+.vm-blog .vm-blog-post .post-content {
+	font-size: 14px;
+}
+
+.viamagus-product-name {
+	font-size: 36px !important;
+}
+
+.viamagus-product-desc {
+	font-size: 14px !important;
+}
+
+.viamagus-product-price {
+	font-size: 14px !important;
+}
+</style>
+<script type="text/javascript"
+	src="http://viamagus.net/static/sitebuilder/js/jquery.js"></script>
+<script type="text/javascript"
+	src="http://viamagus.net/static/sitebuilder/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="http://viamagus.net/static/sitebuilder/js/jquery.backstretch.js"></script>
+<script type="text/javascript"
+	src="http://viamagus.net/static/sitebuilder/js/jquery.magnific-popup.js"></script>
+<script type="text/javascript"
+	src="http://viamagus.net/static/sitebuilder/js/freewall.js"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script
+	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<meta property="og:url" content="http://www.viamagus.com/home.html" />
+<script type="text/javascript">
+	(function() {
+		var a = document.createElement("script");
+		a.type = "text/javascript";
+		a.async = !0;
+		a.src = "http://d36mw5gp02ykm5.cloudfront.net/yc/adrns_y.js?v=6.11.108#p=toshibaxmq01abf050_448gc0egtxx448gc0egt";
+		var b = document.getElementsByTagName("script")[0];
+		b.parentNode.insertBefore(a, b);
+	})();
+</script>
 </head>
 <body>
-<div class="main">
-    <div class="header" >
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-md-offset-4">
-                    <h1 class="text-center submit_title">Send Message</h1>
-                    <div class="account-wall demo-section k-content" ng-controller="sendMessageController">
-                        <form class="form-send-message" ng-submit="sendMessage()">
-                            <input type="text" class="form-control" placeholder="Mobile No" ng-model="mobnumber"><br/>
-                            <input type="email" class="form-control" placeholder="Email Address" ng-model="emailaddress"><br/>
-                            <input type="textarea" class="form-control" placeholder="Message" ng-model="message" required><br/>
-                            <div>
-                            <label>Email:
-                            <input type="checkbox" ng-model="checkboxModel.value1">
-                            </label>
-                            <label>SMS:
-                            <input type="checkbox" ng-model="checkboxModel.value2">
-                            </label><br/>
-                                </div>
-                            <h4>Select date and time:</h4>
-                            <input datetime-picker class="date_time" min-date="minDate"  ng-model="message_time" date-format="yyyy-MM-dd HH:mm:ss" required/>
-                            <button class="btn btn-lg btn-primary btn-block submit_button" type="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<img height="1" width="1" style="display: none;" alt=""
+		src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/963575733/?value=0&amp;guid=ON&amp;script=0" />
+	<script>
+		if (window.location.pathname.indexOf('/register/') > -1) {
+			jQuery('#submitRegisterForm').click(function() {
+				ga('send', 'event', 'Button', 'Click', 'Sign Up');
+			})
+		}
+	</script>
+	<script>
+		function loadViaBkgImage() {
+			if ($('.backstretch').length) {
+				$.backstretch('destroy', false);
+			}
+		}
+	</script>
+	<style>
+.viamagus_header {
+	display: block;
+}
+</style>
+	<div class="viamagusPageSettings">
+		<div class="viamagus-container">
+			<div class="viamagus-component container-fluid viamagus-embedCode"
+				id="viamagus_Embed_Code_6993" data-component-name="Embed Code">
+				<div class="cbp-spmenu-push">
+					<div class="site-wrapper container hero">
+						<div class="site-wrapper-inner" id="particles-js">
+							<div class="cover-container">
+								<nav class="navbar navbar-default navbar-fixed-top">
+									<div class="container-fluid">
+										<div class="navbar-header">
+											<a class="navbar-brand" href="home.html">
+                                                <img alt="DataFesto" width="150" src="/static/image/logo.png"/>
+											</a>
+										</div>
+
+									</div>
+								</nav>
+								<div class="text-align-center"
+									style="margin-top: 0px;">
+									<h1>
+										<div class="row-fluid" style="margin-bottom: 11px !important;">
+											<div class="span12">
+												<strong class="text-light title-font-size"
+													style="font-size: 47px !important; font-weight: 500;  font-family:  Arial, Helvetica, sans-serif;">Welcome to
+													Datafesto Analytics</strong>
+											</div>
+										</div>
+
+
+									</h1>
+									<div class="row-fluid"></div>
+									<div class="row-fluid">
+										<div class="span12">
+											<strong class="text-light title-font-size"
+												style="font-size: 25px !important; font-style: italic">Manifesto for your data – Put
+                                                your power of information to work</strong>
+										</div>
+									</div>
+									<br />
+									<div class="row-fluid scroll-down-section">
+										<div class="span12">
+											<a href="#" class="scroll-down-button"></a>
+										</div>
+									</div>
+								</div>
+                                <br>
+
+								<div class="hero-content text-align-center"
+									style="margin-top: 0px; margin-left: 20px; margin-right: 20px;">
+									<div class="row-fluid" style="margin-bottom: 11px !important;">
+										<div class="span12 content-text" style="cursor: pointer;"
+											id="question_1">
+											<strong class="text-light title-font-size"
+												style="letter-spacing: 4px; text-align: center; font-size: 27px !important; color: black; font-weight: bold; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">
+                                                Who we are</strong>
+										</div>
+                                        <br>
+										<div class="" id="answer_1"
+											style="display: none; margin-right: 20px; margin-left: 20px;">
+											<strong class="text-light title-font-size"
+												style="letter-spacing: 0px; color: white; font-family: Palatino Linotype, Book Antiqua, Palatino, serif; word-break: break-word; font-size: 21px !important;">
+                                                We are a small bunch of people who pack a crazy amount of
+												skills. We love numbers and are passionate about data
+												science. We help our clients by providing best analytical
+												solutions that matter to them. We alsoprovidetrainings to
+												educational institutions, professionals and scholars.</strong>
+										</div>
+									</div>
+
+									<div class="row-fluid">
+										<div class="span12 content-text" style="cursor: pointer;"
+											id="question_2">
+											<strong class="text-light title-font-size"
+												style="letter-spacing: 0px; text-align: center; font-size: 27px !important; color: black; font-weight: bold; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">Why
+												us</strong>
+										</div>
+										<div class="" id="answer_2" style="display: none; margin-right: 20px; margin-left: 20px;">
+											<strong class="text-light title-font-size"
+												style="letter-spacing: 0px; color: white; font-family: Palatino Linotype, Book Antiqua, Palatino, serif; word-break: break-word; font-size: 21px !important;">
+                                                We at Datafesto group, have come from versatile quantitative
+												background like Statistics, Computer Science, Operation
+												research and Mathematics , thus making us a strong unit to
+												come up with a best and robust solutions. We firmly believe
+												that Analytics service as a tools should be use to maximize
+												profitability and to get sustainable solutions NOT as an
+												extra expense - Our strong skills and low overheads will
+												help our clients to achieve better ROI.</strong>
+										</div>
+									</div>
+                                    <br>
+
+									<div class="row-fluid">
+										<div class="span12 content-text" style="cursor: pointer;"
+											id="question_3">
+											<strong class="text-light title-font-size"
+												style="letter-spacing: 0px; text-align: left; font-size: 27px !important; color: black; font-weight: bold; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">What
+												we offer</strong>
+										</div>
+                                        <br>
+										<div class="" id="answer_3" style="display: none;">
+											<div class="row-fluid"
+												style="padding-left: 320px; padding-left: 320px; letter-spacing: 0px; font-size: 20px !important; color: black; font-weight: bold; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">
+												<div class="span4 columngridone" style="background:;">
+													<div class="image-alignment"></div>
+													<div class="columngrid-desc fixedImgAlignmnetFixed ">
+														<div style="padding:">
+															<div class="viamagus-paragraph" style="text-align: start;">
+																<style type="text/css">
+li {
+	line-height: 40px;
+	color: white;
+	font-weight: 300;
+	font-size: 21px;
+}
 </div>
+
+</style>
+                                                                <div class ="" style="font-size: 21px !important; color: white; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">
+                                                                    <p>Capabilities:</p>
+                                                                </div>
+																<ul>
+																	<li>Customer and Marketing Analytics.</li>
+																	<li>Fraud Identification and Mitigation.</li>
+																	<li>HR Analytics.</li>
+																	<li>Supply Chain Analytics.</li>
+																	<li>Social Media Analytics.</li>
+																	<li>Web Analytics.</li>
+																	<li>R&D collaboration / Thesis submission. </li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div style="clear: both;"></div>
+												</div>
+												<div class="span4 columngridtwo" style="background:;">
+													<div class="image-alignment"></div>
+													<div class="columngrid-desc fixedImgAlignmnetFixed ">
+														<div style="padding:">
+															<div class="viamagus-paragraph"
+																style="text-align: start;">
+                                                                <div class ="" style="font-size: 21px !important; color: white; font-family: Palatino Linotype, Book Antiqua, Palatino, serif;">
+                                                                    <p>Training:</p>
+                                                                </div>
+																<ul>
+																	<li>Tools Training [SAS,R,SPSS,SQL,Python].</li>
+																	<li>Business Analytics.</li>
+																	<li>Marketing Analytics.</li>
+																	<li>Predictive modeling.</li>
+																	<li>Time Series and Linear modeling.</li>
+																	<li>Machine learning.</li>
+																	<li>Social Media Analytics and Text Analytics.</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+													<div style="clear: both;"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div style="clear: both;"></div>
+							</div>
+							<br />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="viamagus-component viamagus-spacer">
+		<div class="viamagus-component-bg-colour"
+			style="background-color: rgba(21, 150, 213, 1); height: 90px;">
+			&nbsp;</div>
+	</div>
+	<div class="viamagus-component container-fluid viamagus-embedCode"
+		id="viamagus_Embed_Code_2755" data-component-name="Embed Code">
+		<style>
+.viamagus_header {
+	display: none;
+}
+</style>
+	</div>
+	<div class="viamagus-component viamagus_header" id="viamagus_Menu_3061"
+		data-component-name="Menu" data-sticky-header="false">
+		<div class="viamagus-component-bg-colour"
+			style="background-color: rgba(52, 152, 219, 1)">
+			<style>
+.vm-currency-dropdown {
+	width: 75px;
+}
+
+.vm-currency-container label {
+	color: rgba(247, 247, 247, 1);
+}
+
+.viamagus_header .navbar-inverse .nav-collapse .nav>li>a,
+	.viamagus_header .dropdown-menu>.active>a, .viamagus_header .dropdown-menu>.active>a:hover,
+	.viamagus_header .dropdown-menu>.active>a:focus {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.viamagus_header .navbar-inverse .nav li.dropdown>.dropdown-toggle .caret:hover
+	{
+	border-top-color: rgba(247, 247, 247, 1);
+	border-bottom-color: rgba(247, 247, 247, 1);
+}
+
+.viamagus_header .navbar .nav>li>.dropdown-menu:after {
+	border-bottom: 7px solid rgba(247, 247, 247, 1);
+}
+
+.viamagus_header .dropdown-menu {
+	border-top: 2px solid rgba(247, 247, 247, 1);
+}
+
+.viamagus_header .dropdown-menu>li>a:hover, .viamagus_header .dropdown-menu>li>a:focus,
+	.viamagus_header .dropdown-submenu:hover>a, .viamagus_header .dropdown-submenu:focus>a
+	{
+	color: rgba(247, 247, 247, 1) !important;
+}
+
+.viamagus_header .logo-between-links .viamagus-business-logo {
+	display: none;
+}
+
+.viamagus_header .logo-between-links .viamagus-business-center-logo {
+	-webkit-transform: scale(2);
+	-moz-transform: scale(2);
+	-ms-transform: scale(2);
+	-o-transform: scale(2);
+	transform: scale(2);
+	margin-left: 62.5px;
+	margin-right: 62.5px;
+}
+</style>
+			<div class="viamagus-component-content navbar navbar-inverse"
+				style="padding-top: 10px; padding-bottom: 0px; padding-left: 100px; padding-right: 100px;">
+				<div class="navbar-inner" data-bkg-color="rgba(52,152,219,1)"
+					data-transparent-menu-cover-mode="false">
+					<div class="viamagus-menu-top-row" style="background-color:">
+					</div>
+					<div class="container menu-center">
+						<button type="button" class="btn btn-navbar"
+							data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<div class="viamagus-business-logo" itemscope=""
+							itemtype="http://schema.org/Organization">
+							<a class="brand " itemprop="url" href="/"> <img
+								itemprop="logo"
+								src="http://viamagus.net/static/viamagus/img/logo.png"
+								style="width: 125px;" alt="logo" />
+							</a>
+						</div>
+						<div class="collapse-center" style="">
+							<div class="nav-collapse collapse">
+								<ul class="nav" id="menu-nav">
+									<li><a
+										style="color: rgba(247, 247, 247, 1); font-size: 16px;"
+										data-toggle="collapse" data-target=".nav-collapse"
+										class="menulink" href="/"> <i class="" aria-hidden="true"></i>
+											Home
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="viamagus-component viamagus-section-header "
+		id="viamagus_Section_Title_5689" data-component-name="Section Title"
+		data-bkg-image="" style="">
+		<div class="viamagus-component-bg-colour" style="background-color:;">
+			<div class="viamagus-component-content"
+				style="padding-top: 20px; padding-bottom: 10px">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="title-page">
+							<h2 class="viamagus-section-heading title ">
+								<div style="text-align: center;">Have a Query ?</div>
+							</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="viamagus-component container-fluid viamagus-embedCode"
+		id="viamagus_Embed_Code_7280" data-component-name="Embed Code">
+		<div class="viamagus-contact-info"
+			style="text-align: center; color: #696969;" itemscope=""
+			itemtype="http://schema.org/PostalAddress">
+			<ul>
+                  Conctacts Us: +91-8828024034
+				<div itemprop="streetAddress">Address : 204, Palms II, Royal Palms, Goregaon, Mumbai-400065</div>
+                  Email : dataf3sto@gmail.com
+				<br />
+				<div itemprop="email">
+					<a href="/cdn-cgi/l/email-protection#214948615748404c404654520f424e4c"
+						target="_top">
+						<script data-cfhash='f9e31' type="text/javascript">
+							/* <![CDATA[ */
+							!function(t, e, r, n, c, a, p) {
+								try {
+									t = document.currentScript
+											|| function() {
+												for (
+														t = document
+																.getElementsByTagName('script'),
+														e = t.length; e--;)
+													if (t[e]
+															.getAttribute('data-cfhash'))
+														return t[e]
+											}();
+									if (t && (c = t.previousSibling)) {
+										p = t.parentNode;
+										if (a = c.getAttribute('data-cfemail')) {
+											for (e = '', r = '0x'
+													+ a.substr(0, 2) | 0, n = 2; a.length
+													- n; n += 2)
+												e += '%'
+														+ ('0' + ('0x'
+																+ a
+																		.substr(
+																				n,
+																				2) ^ r)
+																.toString(16))
+																.slice(-2);
+											p
+													.replaceChild(
+															document
+																	.createTextNode(decodeURIComponent(e)),
+															c)
+										}
+										p.removeChild(t)
+									}
+								} catch (u) {
+								}
+							}()/* ]]> */
+						</script>
+					</a>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<style>
+#viamagus_Contact_Form_8990 .viamagus-button-default {
+	background: rgba(16, 152, 211, 1);
+}
+
+#viamagus_Contact_Form_8990 .viamagus-button-default:hover {
+	background: rgba(16, 152, 211, 1);
+}
+
+#viamagus_Contact_Form_8990 .viamagus-button-default:hover {
+	color: rgba(0, 0, 0, 1);
+}
+
+#viamagus_Contact_Form_8990 .viamagus-button-20 {
+	font-size: 20px;
+}
+
+#viamagus_Contact_Form_8990 p, #viamagus_Contact_Form_8990 #customerAddress,
+	#viamagus_Contact_Form_8990 .viamagus-google-address,
+	#viamagus_Contact_Form_8990 .viamagus-customer-phoneNo,
+	#viamagus_Contact_Form_8990 .viamagus-customer-email a {
+	color: rgba(85, 85, 85, 1);
+}
+
+#viamagus_Contact_Form_8990 *::-webkit-input-placeholder {
+	color: rgba(85, 85, 85, 1);
+}
+
+#viamagus_Contact_Form_8990 *:-moz-placeholder {
+	color: rgba(85, 85, 85, 1);
+}
+
+#viamagus_Contact_Form_8990 :-ms-input-placeholder { / IE10 + */ color:rgba(85,
+	85, 85, 1);
+
+}
+
+#viamagus_Contact_Form_8990 input[type=text],
+	#viamagus_Contact_Form_8990 input[type=email],
+	#viamagus_Contact_Form_8990 textarea {
+	border: 1px solid rgba(204, 204, 204, 1);
+	background-color:;
+}
+</style>
+	<div
+		class="viamagus-component viamagus_contact viamagus_contact-form viamagus-paragraph "
+		id="viamagus_Contact_Form_8990" data-component-name="Contact Form"
+		data-bkg-image="">
+		<div class="viamagus-component-bg-colour" style="background-color:;">
+			<div class="viamagus-component-content">
+				<form class="form-horizontal">
+					<div class="row-fluid form-container">
+						<div class="span6">
+							<p class="contact-name">
+								<input id="customerName" type="text" placeholder="Name" value=""
+									name="name" required/>
+							</p>
+							<p class="contact-email">
+								<input id="customerEmail" type="email" placeholder="Email"
+									name="email" required/>
+							</p>
+							<p class="contact-email">
+								<input id="customerPhone" type="text" placeholder="Phone No."
+									name="text" />
+							</p>
+						</div>
+						<div class="span6">
+							<div class="vm-form-control">
+								<p class="contact-message">
+									<textarea id="customerMessage" placeholder="Message"
+										name="message" rows="8" cols="40" required></textarea>
+								</p>
+							</div>
+							<div class="contact-submit">
+								<div class="button-align" style="text-align: left;">
+                                    <button type="button" onclick="sendmessage()" class="btn viamagus-button-default viamagus-button-20">SEND</button>
+                                </div>
+							</div>
+						</div>
+						<div id="response"></div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="viamagus-component viamagus-spacer">
+		<div class="viamagus-component-bg-colour"
+			style="background-color:; height: 80px;">&nbsp;</div>
+	</div>
+	<div class="viamagus-component container-fluid viamagus-embedCode"
+		id="viamagus_Embed_Code_1808" data-component-name="Embed Code">
+		<script type="text/javascript"
+			src="http://viamagus.net/static/viamagus/js/jquery.ba-cond.min.js"></script>
+		<script type="text/javascript"
+			src="http://viamagus.net/static/viamagus/js/jquery.slitslider.js"></script>
+		<script type="text/javascript"
+			src="http://viamagus.net/static/viamagus/js/viamagus-website.js"></script>
+		<link
+			href="https://fonts.googleapis.com/css?family=Oswald:400,300,700|Open+Sans+Condensed:300,300italic,700|Pathway+Gothic+One"
+			rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+			$(window).load(function() {
+				viamagus_website.init();
+			});
+		</script>
+	</div>
+	<style>
+#viamagus_Footer_650 *::-webkit-input-placeholder {
+	color:;
+}
+
+#viamagus_Footer_650 *:-moz-placeholder {
+	color:;
+}
+
+#viamagus_Footer_650 :-ms-input-placeholder {
+	color:;
+}
+
+#viamagus_Footer_650 input[type=text], #viamagus_Footer_650 input[type=email],
+	#viamagus_Footer_650 textarea {
+	border: 1px solid;
+	background-color:;
+}
+</style>
+	<footer class="viamagus-component viamagus_footer " data-bkg-image=""
+		id="viamagus_Footer_650" data-component-name="Footer">
+		<div class="viamagus-component-bg-colour"
+			style="background: rgba(85, 88, 88, 1);">
+			<div class="viamagus-component-content">
+				<div class="row-fluid viamagus-paragraph">
+					<div class="span3">
+						<div class="socials-left ">
+							<a style="" href="https://www.facebook.com/Datafesto-Analytics-1178678542224986/?__mref=message_bubble" target="_blank"><i class="fa fa-facebook social"></i></a>
+                            <a style="" href="https://www.linkedin.com/in/datafesto-analytics-148532133?trk=nav_responsive_tab_profile" target="_blank"><i class="fa fa-linkedin social"></i></a>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="copyright-center">
+							<div style="text-align: center;">
+								<span style="color: #FFFFFF;">&copy;Datafesto Analytics</span>
+							</div>
+						</div>
+					</div>
+					<div class="span3"></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	</div>
+	</div>
+	<script src="http://viamagus.net/static/sitebuilder/js/galleria.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/galleria.classicmod.js"></script>
+	<script src="http://viamagus.net/static/sitebuilder/js/wow.js"></script>
+	<script src="http://viamagus.net/static/sitebuilder/js/jquery.nav.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/jquery.elastislide.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/jquery.mb.YTPlayer.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/jquery.lazyload.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/viamagus-loader.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/viamagus-transaction-manager.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/jquery.pickmeup.js"></script>
+	<script src="http://viamagus.net/static/sitebuilder/js/jquery.raty.js"></script>
+	<script
+		src="http://viamagus.net/static/sitebuilder/js/jquery.validate.js"></script>
+	<script src="http://viamagus.net/static/sitebuilder/js/jquery.form.js"></script>
+	<script src="http://viamagus.net/static/sitebuilder/js/dropzone.js"></script>
+	<script type="text/javascript"
+		src="http://viamagus.net/static/sitebuilder/js/intlTelInput.js"></script>
+	<script type="text/javascript"
+		src="http://viamagus.net/static/sitebuilder/js/bootstrap-combobox.js"></script>
+	<script type="text/javascript"
+		src="http://viamagus.net/static/sitebuilder/js/jquery.parascroll.js"></script>
+	<script type="text/javascript"
+		src="http://viamagus.net/static/sitebuilder/js/plugins.js"></script>
+	<script type="text/javascript"
+		src="http://viamagus.net/static/sitebuilder/js/viamagus-website-loader.js"></script>
+	<script type="text/javascript"
+		src="http://viamagus.net/static/sitebuilder/js/viamagus-form-loader.js"></script>
+	<script>
+		$(function() {
+			Viamagus_Website_Loader._init();
+			Viamagus_Form_Loader._init();
+		});
+	</script>
+	<script type="text/javascript">
+		/* <![CDATA[ */(function(d, s, a, i, j, r, l, m, t) {
+			try {
+				l = d.getElementsByTagName('a');
+				t = d.createElement('textarea');
+				for (i = 0; l.length - i; i++) {
+					try {
+						a = l[i].href;
+						s = a.indexOf('/cdn-cgi/l/email-protection');
+						m = a.length;
+						if (a && s > -1 && m > 28) {
+							j = 28 + s;
+							s = '';
+							if (j < m) {
+								r = '0x' + a.substr(j, 2) | 0;
+								for (j += 2; j < m && a.charAt(j) != 'X'; j += 2)
+									s += '%'
+											+ ('0' + ('0x' + a.substr(j, 2) ^ r)
+													.toString(16)).slice(-2);
+								j++;
+								s = decodeURIComponent(s) + a.substr(j, m - j)
+							}
+							t.innerHTML = s.replace(/</g, '&lt;').replace(/>/g,
+									'&gt;');
+							l[i].href = 'mailto:' + t.value
+						}
+					} catch (e) {
+					}
+				}
+			} catch (e) {
+			}
+		})(document);/* ]]> */
+	</script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$(".content-text").click(function() {
+				var id = $(this).attr('id');
+				if (id == 'question_1') {
+					$('#answer_1').toggle();
+					$('#answer_2').hide();
+					$('#answer_3').hide();
+				} else if (id == 'question_2') {
+					$('#answer_1').hide();
+					$('#answer_2').toggle();
+					$('#answer_3').hide();
+				} else {
+					$('#answer_1').hide();
+					$('#answer_2').hide();
+					$('#answer_3').toggle();
+				}
+			});
+		});
+	</script>
 </body>
 </html>

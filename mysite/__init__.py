@@ -1,5 +1,4 @@
 # from __future__ import absolute_import, division, print_function, unicode_literals4
-from .celery_tasks import app as celery_app
 import site
 import os
 
