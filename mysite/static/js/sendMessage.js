@@ -42,9 +42,8 @@ function sendmessage() {
         contentType: 'application/json',
     });
     function wait(response){
-    setTimeout(function(){
-        if( response['message'] == 'SUCCESS'){alert('Your query has been send successfully');}
-    }, 5000);
-
-    }
+    setTimeout( function() {
+    alert("message has been sent successfully")
+  }, 5000);
+   }
 }
