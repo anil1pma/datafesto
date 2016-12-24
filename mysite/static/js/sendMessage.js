@@ -34,16 +34,12 @@ function sendmessage() {
         },
         success: function(response) {
             if (response['message'] == 'SUCCESS') {
-                 wait(response);
+                 window.alert("Your query has been sent successfully.")
                  window.location = "/"
             }
         },
         dataType: 'json',
         contentType: 'application/json',
     });
-    function wait(response){
-    setTimeout( function() {
-    alert("message has been sent successfully")
-  }, 5000);
-   }
+
 }
